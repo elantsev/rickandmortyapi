@@ -78,10 +78,9 @@ export const counterSlice = createSlice({
 
 // export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
-// The function below is called a selector and allows us to select a value from
-// the state. Selectors can also be defined inline where they're used instead of
-// in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectCharacters = (state: RootState): Character[] | null =>
   state.characters.data?.results;
+export const charactersPages = (state: RootState): number | undefined =>
+  state.characters.data?.info?.pages;
 
 export default counterSlice.reducer;
