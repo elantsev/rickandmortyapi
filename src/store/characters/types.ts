@@ -42,4 +42,5 @@ export interface CharactersState {
     info: Info | null;
     results: Character[] | null;
   };
+  favorites: number[];
 }

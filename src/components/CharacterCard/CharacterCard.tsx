@@ -1,10 +1,16 @@
 import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core';
+import {
+    createStyles,
+    IconButton,
+    makeStyles,
+    Theme,
+    CardMedia,
+    Typography,
+    CardContent
+} from '@material-ui/core';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import { Character } from '../../store/characters';
 import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -23,11 +29,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 
-export function CharacterCard({ character }: {
+export function CharacterCard({ character, isFavorite, setFavorite }: {
     character: Character;
+    isFavorite: boolean;
+    setFavorite: () => void;
 }): JSX.Element {
 
     const classes = useStyles();
+
     return (
         <Card className={classes.root}>
             <CardContent className={classes.content}>
@@ -40,6 +49,9 @@ export function CharacterCard({ character }: {
                         {character.status}
                     </Typography>
                 </Typography>
+                <IconButton aria-label="add to favorites" onClick={() => setFavorite()}>
+                    <FavoriteIcon color={isFavorite ? "secondary" : 'primary'} />
+                </IconButton>
             </CardContent>
             <CardMedia
                 className={classes.cover}
