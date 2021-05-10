@@ -1,6 +1,6 @@
-import { useQuery } from 'hooks/useQuery';
 import { useEffect } from 'react';
-
+import { Grid } from '@material-ui/core';
+import { useQuery } from 'hooks/useQuery';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { CharacterCard } from '../CharacterCard/CharacterCard';
 import { Character, selectCharacters, fetchCharactersAsync } from '../../store/characters';
@@ -19,8 +19,10 @@ export function Characters() {
 
 
   return (
-    <div>
-      {charactersData?.map((character) => <CharacterCard key={character.id} character={character} />)}
-    </div>
+    <Grid container spacing={1} >
+      {charactersData?.map((character) => <Grid item xs={12} sm={6} lg={4} xl={3} >
+        <CharacterCard key={character.id} character={character} />
+      </Grid>)}
+    </Grid>
   );
 }
