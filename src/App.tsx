@@ -7,6 +7,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 } from "react-router-dom";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
               <Characters />
               <PaginationLink />
             </Route>
+            <Redirect to="/characters" />
           </Switch>
         </header>
       </Box>
