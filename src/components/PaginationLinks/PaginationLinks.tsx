@@ -4,7 +4,7 @@ import Pagination from '@material-ui/lab/Pagination';
 import PaginationItem from '@material-ui/lab/PaginationItem';
 import { useQuery } from 'hooks/useQuery';
 import { useAppSelector } from 'app/hooks';
-import { charactersPages } from 'features/characters/charactersSlice';
+import { charactersPages } from 'store/characters';
 
 
 export default function PaginationLink() {

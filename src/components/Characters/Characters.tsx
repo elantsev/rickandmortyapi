@@ -2,12 +2,8 @@ import { useQuery } from 'hooks/useQuery';
 import { useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { CharacterCard } from '../../components/CharacterCard/CharacterCard';
-import {
-  selectCharacters,
-  fetchCharactersAsync,
-  Character,
-} from './charactersSlice';
+import { CharacterCard } from '../CharacterCard/CharacterCard';
+import { Character, selectCharacters, fetchCharactersAsync } from '../../store/characters';
 
 
 export function Characters() {

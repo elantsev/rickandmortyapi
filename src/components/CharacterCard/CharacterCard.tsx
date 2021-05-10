@@ -1,4 +1,5 @@
-import { Character } from '../../features/characters/charactersSlice';
+import { Box } from '@material-ui/core';
+import { Character } from '../../store/characters';
 
 
 
@@ -6,13 +7,9 @@ export function CharacterCard({ character }: {
     character: Character;
 }): JSX.Element {
 
-
-
-
-
     return (
-        <div>
+        <Box>
             {character.name}
-        </div>
+        </Box>
     );
 }

@@ -1,5 +1,5 @@
-import { Gender, Status } from './charactersSlice';
-import API from '../../api/request';
+import { Gender, Status } from '../../store/characters/types';
+import API from '../request';
 
 // A mock function to mimic making an async request for data
 export function fetchCount(amount = 1) {

@@ -1,4 +1,4 @@
-import { Characters } from './features/characters/Characters';
+import { Characters } from './components/Characters/Characters';
 import './App.css';
 import React from 'react';
 import { Box } from '@material-ui/core';
@@ -7,7 +7,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 function App() {

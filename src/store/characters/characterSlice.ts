@@ -1,48 +1,7 @@
+import { Character, CharactersState } from './types';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
-import { fetchCharacters, Params } from './charactersAPI';
-
-export interface Gender {
-  gender: 'Female' | 'Male' | 'Genderless' | 'unknown';
-}
-export interface Status {
-  gender: 'Alive' | 'Dead' | 'unknown';
-}
-export interface Character {
-  id: number;
-  name: string;
-  status: Status;
-  species: string;
-  type: string;
-  gender: Gender;
-  origin: {
-    name: string;
-    url: string;
-  };
-  location: {
-    name: string;
-    url: string;
-  };
-  image: string;
-  episode: string[];
-  url: string;
-  created: Date;
-}
-
-export interface Info {
-  count: number;
-  pages: number;
-  next: string | null;
-  prev: string | null;
-}
-
-export interface CharactersState {
-  status: 'init' | 'loading' | 'loaded' | 'failed';
-  data: {
-    info: Info | null;
-    results: Character[] | null;
-  };
-}
+import { fetchCharacters, Params } from '../../api/characters/charactersAPI';
 
 const initialState: CharactersState = {
   status: 'init',
@@ -75,8 +34,6 @@ export const counterSlice = createSlice({
       });
   },
 });
-
-// export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
 export const selectCharacters = (state: RootState): Character[] | null =>
   state.characters.data?.results;
