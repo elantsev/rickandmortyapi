@@ -1,7 +1,3 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { RootState } from '../../app/store';
-import { fetchCharacters, Params } from '../../api/characters/charactersAPI';
-
 export interface Gender {
   gender: 'Female' | 'Male' | 'Genderless' | 'unknown';
 }

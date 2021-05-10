@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 import { useQuery } from 'hooks/useQuery';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { CharacterCard } from '../CharacterCard/CharacterCard';
-import { Character, selectCharacters, fetchCharactersAsync, setFavorite, selectFavorites } from '../../store/characters';
+import { selectCharacters, fetchCharactersAsync, setFavorite, selectFavorites } from '../../store/characters';
 
 
 export function Characters() {
