@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 import { useQuery } from 'hooks/useQuery';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { CharacterCard } from '../CharacterCard/CharacterCard';
-import { selectCharacters, fetchCharactersAsync, setFavorite, selectFavorites } from '../../store/characters';
+import { selectCharacters, fetchCharactersAsync, setFavorite, selectFavorites, Gender, Status } from '../../store/characters';
 
 
 export function Characters() {
@@ -13,14 +13,15 @@ export function Characters() {
 
 
 
-
-
   let query = useQuery();
   const page = parseInt(query.get('page') || '1', 10);
+  const gender = query.get('gender') as Gender;
+  const status = query.get('status') as Status;
+  const name = query.get('name') as string | undefined;
 
   useEffect(() => {
-    dispatch(fetchCharactersAsync({ page }))
-  }, [dispatch, page]);
+    dispatch(fetchCharactersAsync({ page, gender, status, name }))
+  }, [dispatch, page, gender, status, name]);
 
   return (
     <Grid container spacing={1} >

@@ -9,6 +9,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import FilterForm from 'components/Form/FilterForm';
 
 function App() {
   const theme = useTheme();
@@ -19,6 +20,7 @@ function App() {
         <header className="App-header">
           <Switch>
             <Route path="/characters">
+              <FilterForm />
               <Characters />
               <PaginationLink />
             </Route>
