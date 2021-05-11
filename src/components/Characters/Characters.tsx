@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import { useQuery } from 'hooks/useQuery';
 import { CharacterCard } from '../CharacterCard/CharacterCard';
-import { selectCharacters, fetchCharactersAsync, setFavorite, selectFavorites, Gender, Status } from '../../store/characters';
+import { selectCharacters, fetchCharactersAsync, setFavorite, selectFavorites } from '../../store/characters';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 
 
