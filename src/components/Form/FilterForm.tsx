@@ -6,6 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { Box, Button, Grid, TextField } from '@material-ui/core';
 import { useHistory } from 'react-router';
+import { useQuery } from 'hooks/useQuery';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -40,9 +41,10 @@ const statusOptions = [
 export default function FilterForm() {
   const classes = useStyles();
   let history = useHistory();
-  const [gender, setGender] = React.useState('');
-  const [status, setStatus] = React.useState('');
-  const [name, setName] = React.useState('');
+  const { gender: initGender, status: initStatus, name: initName } = useQuery();
+  const [gender, setGender] = React.useState(initGender ?? '');
+  const [status, setStatus] = React.useState(initStatus ?? '');
+  const [name, setName] = React.useState(initName ?? '');
 
 
   const handleSubmit = useCallback(
