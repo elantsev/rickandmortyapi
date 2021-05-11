@@ -17,6 +17,7 @@
     "@types/react-redux": "^7.1.7",
     "@types/react-router-dom": "^5.1.7",
     "axios": "^0.21.1",
+
     "prettier": "^2.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -25,11 +26,16 @@
     "react-scripts": "4.0.3",
     "typescript": "^4.2.4"
   },
+  "devDependencies": {
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepush": "jest && next build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,5 +51,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run prepush",
+      "pre-commit": "lint-staged"
+    },
+    "lint-staged": {
+      "*.{js,jsx,ts,tsx}": "eslint --cache --fix"
+    }
   }
 }
