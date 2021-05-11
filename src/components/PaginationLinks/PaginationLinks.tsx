@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import Pagination from '@material-ui/lab/Pagination';
 import PaginationItem from '@material-ui/lab/PaginationItem';
 import { useQuery } from 'hooks/useQuery';
-import { useAppSelector } from 'app/hooks';
+import { useAppSelector } from 'store/hooks';
 import { charactersPages } from 'store/characters';
 
 
 export default function PaginationLink() {
     const pages: number | undefined = useAppSelector(charactersPages);
-    let query = useQuery();
-    const page = parseInt(query.get('page') || '1', 10);
+    const { page } = useQuery();
+
     return (
         <Pagination
             page={page}
