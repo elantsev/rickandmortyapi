@@ -7,6 +7,7 @@ import Select from '@material-ui/core/Select';
 import { Box, Button, Grid, TextField } from '@material-ui/core';
 import { useHistory } from 'react-router';
 import { useQuery } from 'hooks/useQuery';
+import { Gender, Status } from 'store/characters';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -69,7 +70,7 @@ export default function FilterForm() {
               <InputLabel>Пол</InputLabel>
               <Select
                 value={gender}
-                onChange={(e) => setGender(e.target.value as string)}
+                onChange={(e) => setGender(e.target.value as Gender)}
               >
                 {genderOptions.map(({ label, value }) => <MenuItem value={value}>{label}</MenuItem>)}
               </Select>
@@ -81,7 +82,7 @@ export default function FilterForm() {
               <InputLabel>Статус</InputLabel>
               <Select
                 value={status}
-                onChange={(e) => setStatus(e.target.value as string)}
+                onChange={(e) => setStatus(e.target.value as Status)}
               >
                 {statusOptions.map(({ label, value }) => <MenuItem value={value}>{label}</MenuItem>)}
               </Select>
