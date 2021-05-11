@@ -1,6 +1,6 @@
 import { Character, CharactersState } from './types';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../../app/store';
+import { RootState } from '../store';
 import { fetchCharacters, Params } from '../../api/characters/charactersAPI';
 
 const initialState: CharactersState = {

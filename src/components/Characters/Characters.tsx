@@ -1,23 +1,17 @@
 import { useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import { useQuery } from 'hooks/useQuery';
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { CharacterCard } from '../CharacterCard/CharacterCard';
 import { selectCharacters, fetchCharactersAsync, setFavorite, selectFavorites, Gender, Status } from '../../store/characters';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 
 
 export function Characters() {
   const charactersData = useAppSelector(selectCharacters);
   const favorites = useAppSelector(selectFavorites);
   const dispatch = useAppDispatch();
+  const { page, gender, status, name } = useQuery();
 
-
-
-  let query = useQuery();
-  const page = parseInt(query.get('page') || '1', 10);
-  const gender = query.get('gender') as Gender;
-  const status = query.get('status') as Status;
-  const name = query.get('name') as string | undefined;
 
   useEffect(() => {
     dispatch(fetchCharactersAsync({ page, gender, status, name }))
@@ -40,3 +34,4 @@ export function Characters() {
     </Grid>
   );
 }
+
